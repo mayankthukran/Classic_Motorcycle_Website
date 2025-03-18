@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub - Event Booking Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/app.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/events.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-calendar-alt"></i> EventHub</h1>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li class="auth-hidden"><a href="#profile">My Profile</a></li>
+                    <li class="auth-hidden"><a href="#bookings">My Bookings</a></li>
+                    <li class="auth-visible"><a href="#" id="login-btn">Login</a></li>
+                    <li class="auth-visible"><a href="#" id="signup-btn">Sign Up</a></li>
+                    <li class="auth-hidden"><a href="#" id="logout-btn">Logout</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Discover Amazing Events Near You</h2>
+                <p>Browse and book tickets for concerts, conferences, workshops and more!</p>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search for events...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-filter">
+        <div class="container">
+            <h3>Browse by Category</h3>
+            <div class="categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="tech">Tech</button>
+                <button class="category-btn" data-category="music">Music</button>
+                <button class="category-btn" data-category="sports">Sports</button>
+                <button class="category-btn" data-category="arts">Arts</button>
+                <button class="category-btn" data-category="business">Business</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <h2>Upcoming Events</h2>
+            <div class="events-grid" id="events-container">
+                <!-- Event cards will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About EventHub</h2>
+            <p>EventHub is your go-to platform for discovering and booking tickets for the best events happening around you. From tech conferences to music concerts, we've got you covered!</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-search"></i>
+                    <h3>Discover Events</h3>
+                    <p>Find events that match your interests and preferences.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h3>Book with Ease</h3>
+                    <p>Secure your spot with our simple booking process.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Track Your Events</h3>
+                    <p>Keep all your upcoming events organized in one place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EventHub</h3>
+                    <p>Your ultimate event booking platform. Find, book, and enjoy events near you.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@eventhub.com</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EventHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="error-message" id="login-error"></div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p class="form-footer">Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Create an Account</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" required>
+                </div>
+                <div class="error-message" id="signup-error"></div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <p class="form-footer">Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div class="modal" id="event-details-modal">
+        <div class="modal-content event-details">
+            <span class="close-btn">&times;</span>
+            <div id="event-details-content">
+                <!-- Event details will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Section (Hidden by default) -->
+    <section id="profile" class="profile auth-hidden">
+        <div class="container">
+            <h2>My Profile</h2>
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="profile-details">
+                    <h3 id="profile-name">John Doe</h3>
+                    <p id="profile-email">john@example.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bookings Section (Hidden by default) -->
+    <section id="bookings" class="bookings auth-hidden">
+        <div class="container">
+            <h2>My Bookings</h2>
+            <div class="bookings-grid" id="bookings-container">
+                <!-- Booked events will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Confirmation Modal -->
+    <div class="modal" id="booking-confirmation-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="confirmation-content">
+                <i class="fas fa-check-circle"></i>
+                <h2>Booking Confirmed!</h2>
+                <p>Your booking has been confirmed. You can view all your bookings in your profile.</p>
+                <button class="btn btn-primary" id="view-bookings-btn">View My Bookings</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
