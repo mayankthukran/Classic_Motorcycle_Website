@@ -184,7 +184,7 @@ nav {
     text-align: center;
 }
 .banner_card:nth-child(1) {
-    background-image: url("assets/Banner-1.jpg");
+    background-image: url("assets/banner-1.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
