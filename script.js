@@ -19,7 +19,6 @@ const scrollRevealOption = {
     duration: 1000,
 };
 
-// header container
 ScrollReveal().reveal(".header_content p", {
     ...scrollRevealOption,
 });
@@ -32,7 +31,6 @@ ScrollReveal().reveal(".header_content .header_btn", {
     delay: 1000,
 });
 
-// about container
 ScrollReveal().reveal(".about_container .section_header", {
     ...scrollRevealOption,
 });
@@ -42,7 +40,6 @@ ScrollReveal().reveal(".about_container .section_description", {
     delay: 500,
 });
 
-// blog container
 ScrollReveal().reveal(".blog_card", {
     ...scrollRevealOption,
     interval: 500,
